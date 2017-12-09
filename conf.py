@@ -133,12 +133,16 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 #          else they won’t be highlighted when active.
 
 NAVIGATION_LINKS = {
-    DEFAULT_LANG: (
-        ("/archive.html", "Archive"),
-        ("/categories/", "Tags"),
-        ("/rss.xml", "RSS feed"),
-    ),
-}
+        DEFAULT_LANG: (
+            ('/index.html', 'Home', 'icon-home'),
+            ('/archive.html', 'Archives', 'icon-folder-open-alt'),
+            ('/categories/index.html', 'Tags', 'icon-tags'),
+            ('/rss.xml', 'RSS', 'icon-rss'),
+            ('https://getnikola.com', 'About me', 'icon-user'),
+            ('https://twitter.com/getnikola', 'My Twitter', 'icon-twitter'),
+            ('https://github.com/getnikola', 'My Github', 'icon-github'),
+        )
+    }
 
 # Name of the theme to use.
 THEME = "zen"
