@@ -134,6 +134,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
         DEFAULT_LANG: (
+            ('/index.html', 'Home', 'themes\zen\assets\images\Logo.svg'),
             ('/index.html', 'Home', 'icon-home'),
             ('/archive.html', 'Archives', 'icon-folder-open-alt'),
             ('/categories/index.html', 'Tags', 'icon-tags'),
