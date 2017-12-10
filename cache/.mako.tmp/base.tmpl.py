@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1512913673.974049
+_modified_time = 1512914119.1974416
 _enable_loop = True
 _template_filename = 'themes/zen/templates/base.tmpl'
 _template_uri = 'base.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['extra_js', 'extra_head', 'content']
+_exports = ['content', 'extra_head', 'extra_js']
 
 
 def _mako_get_namespace(context, name):
@@ -36,22 +36,22 @@ def render_body(context,**pageargs):
         _import_ns = {}
         _mako_get_namespace(context, 'arusahni')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
+        set_locale = _import_ns.get('set_locale', context.get('set_locale', UNDEFINED))
         _link = _import_ns.get('_link', context.get('_link', UNDEFINED))
-        arusahni = _mako_get_namespace(context, 'arusahni')
         abs_link = _import_ns.get('abs_link', context.get('abs_link', UNDEFINED))
+        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
+        body_end = _import_ns.get('body_end', context.get('body_end', UNDEFINED))
+        def content():
+            return render_content(context._locals(__M_locals))
         logo_url = _import_ns.get('logo_url', context.get('logo_url', UNDEFINED))
         def extra_js():
             return render_extra_js(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
+        arusahni = _mako_get_namespace(context, 'arusahni')
         template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
-        body_end = _import_ns.get('body_end', context.get('body_end', UNDEFINED))
-        footer = _mako_get_namespace(context, 'footer')
-        set_locale = _import_ns.get('set_locale', context.get('set_locale', UNDEFINED))
+        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
         def extra_head():
             return render_extra_head(context._locals(__M_locals))
-        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
-        lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
+        footer = _mako_get_namespace(context, 'footer')
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -101,16 +101,15 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_extra_js(context,**pageargs):
+def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'arusahni')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
-        def extra_js():
-            return render_extra_js(context)
+        def content():
+            return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\n        <script type="text/javascript">\n            $(function(){\n                $(\'.timeago\').timeago();\n            });\n        </script>\n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -131,15 +130,16 @@ def render_extra_head(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
+def render_extra_js(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         _import_ns = {}
         _mako_get_namespace(context, 'arusahni')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
-        def content():
-            return render_content(context)
+        def extra_js():
+            return render_extra_js(context)
         __M_writer = context.writer()
+        __M_writer('\n        <script type="text/javascript">\n            $(function(){\n                $(\'.timeago\').timeago();\n            });\n        </script>\n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -147,6 +147,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "themes/zen/templates/base.tmpl", "line_map": {"128": 7, "67": 9, "68": 10, "69": 10, "70": 15, "71": 16, "72": 17, "73": 17, "74": 18, "75": 18, "76": 18, "77": 18, "78": 22, "79": 22, "80": 22, "90": 32, "85": 27, "86": 28, "23": 2, "88": 31, "89": 31, "26": 4, "91": 32, "92": 33, "29": 3, "32": 0, "98": 40, "87": 28, "134": 27, "104": 34, "148": 134, "93": 33, "113": 34, "119": 7, "56": 2, "57": 3, "58": 4, "59": 5, "60": 5, "61": 6, "62": 6}, "source_encoding": "utf-8", "uri": "base.tmpl"}
+{"uri": "base.tmpl", "source_encoding": "utf-8", "line_map": {"67": 9, "68": 10, "69": 10, "70": 15, "71": 16, "72": 17, "73": 17, "74": 18, "75": 18, "76": 18, "77": 18, "78": 22, "79": 22, "80": 22, "90": 32, "85": 27, "86": 28, "23": 2, "88": 31, "89": 31, "26": 4, "91": 32, "92": 33, "29": 3, "133": 34, "32": 0, "98": 40, "87": 28, "104": 27, "148": 142, "142": 34, "93": 33, "118": 7, "56": 2, "57": 3, "58": 4, "59": 5, "60": 5, "61": 6, "62": 6, "127": 7}, "filename": "themes/zen/templates/base.tmpl"}
 __M_END_METADATA
 """
