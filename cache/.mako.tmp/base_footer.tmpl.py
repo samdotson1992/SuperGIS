@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1512932171.7426758
+_modified_time = 1512932858.366771
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/base_footer.tmpl'
 _template_uri = 'base_footer.tmpl'
@@ -45,6 +45,6 @@ def render_html_footer(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "uri": "base_footer.tmpl", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/base_footer.tmpl", "line_map": {"34": 3, "35": 4, "36": 5, "37": 6, "38": 6, "39": 7, "40": 7, "46": 40, "16": 0, "21": 2, "22": 10, "28": 3}}
+{"line_map": {"34": 3, "35": 4, "36": 5, "37": 6, "38": 6, "39": 7, "40": 7, "46": 40, "16": 0, "21": 2, "22": 10, "28": 3}, "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/base_footer.tmpl", "uri": "base_footer.tmpl"}
 __M_END_METADATA
 """
