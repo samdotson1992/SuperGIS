@@ -138,9 +138,9 @@ NAVIGATION_LINKS = {
             ('/archive.html', 'Archives', 'icon-folder-open-alt'),
             ('/categories/index.html', 'Tags', 'icon-tags'),
             ('/rss.xml', 'RSS', 'icon-rss'),
-            ('https://getnikola.com', 'About me', 'icon-user'),
-            ('https://twitter.com/getnikola', 'My Twitter', 'icon-twitter'),
-            ('https://github.com/getnikola', 'My Github', 'icon-github'),
+            ('samdotson1992.github.io', 'About me', 'icon-user'),
+            ('https://twitter.com/nostodmas', 'My Twitter', 'icon-twitter'),
+            ('https://github.com/samdotson1992', 'My Github', 'icon-github'),
         )
     }
 
