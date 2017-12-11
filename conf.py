@@ -24,7 +24,7 @@ BLOG_TITLE = "SuperGIS"  # (translatable)
 SITE_URL = "https://samdotson1992.github.io/SuperGIS"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-BASE_URL = "https://samdotson1992.github.io/SuperGIS"
+BASE_URL = "https://samdotson1992.github.io/SuperGIS/"
 BLOG_EMAIL = "samdotson1992"
 BLOG_DESCRIPTION = "GIS blog"  # (translatable)
 
@@ -315,7 +315,7 @@ COMPILERS = {
 # Nikola supports logo display.  If you have one, you can put the URL here.
 # Final outpuITLE">.
 # The URL may be relative to the site root.
-LOGO_URL = "logo.pdf" 
+LOGO_URL = "logo.png" 
 
 # If you want to hide the title of your website (for example, if your logo
 # already contains the text), set t     his to False.
