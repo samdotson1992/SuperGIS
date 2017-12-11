@@ -24,7 +24,7 @@ BLOG_TITLE = "SuperGIS"  # (translatable)
 SITE_URL = "https://samdotson1992.github.io/SuperGIS"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-# BASE_URL = "https://example.com/"
+BASE_URL = "https://samdotson1992.github.io/SuperGIS"
 BLOG_EMAIL = "samdotson1992"
 BLOG_DESCRIPTION = "GIS blog"  # (translatable)
 
