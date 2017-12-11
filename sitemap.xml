@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://example.com/</loc>
-  <lastmod>2017-12-11T01:46:00Z</lastmod>
+  <lastmod>2017-12-11T02:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://example.com/archive.html</loc>
-  <lastmod>2017-12-11T01:52:00Z</lastmod>
+  <lastmod>2017-12-11T02:18:00Z</lastmod>
  </url>
  <url>
   <loc>https://example.com/blog/making-a-map-with-python/</loc>
