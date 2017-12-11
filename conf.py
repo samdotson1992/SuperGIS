@@ -134,7 +134,6 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
         DEFAULT_LANG: (
-            ('/index.html', 'Home', 'themes\zen\assets\images\Logo.svg'),
             ('/index.html', 'Home', 'icon-home'),
             ('/archive.html', 'Archives', 'icon-folder-open-alt'),
             ('/categories/index.html', 'Tags', 'icon-tags'),
@@ -316,7 +315,7 @@ COMPILERS = {
 # Nikola supports logo display.  If you have one, you can put the URL here.
 # Final output is <img src="LOGO_URL" id="logo" alt="BLOG_TITLE">.
 # The URL may be relative to the site root.
-LOGO_URL = 'themes\zen\assets\images\blue-mocha-grunge.jpg'  
+LOGO_URL = 'files\Asset 3.pdf'  
 
 # If you want to hide the title of your website (for example, if your logo
 # already contains the text), set this to False.
