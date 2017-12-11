@@ -15,6 +15,8 @@ This is my first blog and basically just a way for me to share fun stuff I'm wor
 
 ##About myself
 ![Samuel Dotson](assets/images/selfie "Samuel Dotson")
+
+
 [My other website](https://samdotson1992.github.io)
 
 
