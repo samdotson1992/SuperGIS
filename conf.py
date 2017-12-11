@@ -319,7 +319,7 @@ LOGO_URL = "logo.pdf"
 
 # If you want to hide the title of your website (for example, if your logo
 # already contains the text), set t     his to False.
-# SHOW_BLOG_TITLE = True
+SHOW_BLOG_TITLE = True
 # Writes tag cloud data in form of tag_cloud_data.json.#
 # Warning: this option will change its default value to False in v8!
 WRITE_TAG_CLOUD = True
