@@ -6,27 +6,27 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>https://example.com/</loc>
+  <loc>https://samdotson1992.github.io/SuperGIS/</loc>
   <lastmod>2017-12-11T02:18:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/archive.html</loc>
-  <lastmod>2017-12-11T02:18:00Z</lastmod>
+  <loc>https://samdotson1992.github.io/SuperGIS/archive.html</loc>
+  <lastmod>2017-12-11T02:22:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/blog/making-a-map-with-python/</loc>
+  <loc>https://samdotson1992.github.io/SuperGIS/blog/making-a-map-with-python/</loc>
   <lastmod>2017-12-09T15:10:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/categories/</loc>
+  <loc>https://samdotson1992.github.io/SuperGIS/categories/</loc>
   <lastmod>2017-12-09T00:30:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/galleries/</loc>
+  <loc>https://samdotson1992.github.io/SuperGIS/galleries/</loc>
   <lastmod>2017-12-09T00:30:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/listings/</loc>
+  <loc>https://samdotson1992.github.io/SuperGIS/listings/</loc>
   <lastmod>2017-12-09T00:30:00Z</lastmod>
  </url>
 </urlset>

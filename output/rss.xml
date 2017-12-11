@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SuperGIS</title><link>https://example.com/</link><description>GIS blog</description><atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:samdotson1992"&gt;Sam Dotson&lt;/a&gt; </copyright><lastBuildDate>Sat, 09 Dec 2017 22:04:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Making a map with Python</title><link>https://example.com/blog/making-a-map-with-python/</link><dc:creator>Sam Dotson</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SuperGIS</title><link>https://samdotson1992.github.io/SuperGIS</link><description>GIS blog</description><atom:link type="application/rss+xml" rel="self" href="https://samdotson1992.github.io/SuperGIS/rss.xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:samdotson1992"&gt;Sam Dotson&lt;/a&gt; </copyright><lastBuildDate>Mon, 11 Dec 2017 02:22:12 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Making a map with Python</title><link>https://samdotson1992.github.io/SuperGIS/blog/making-a-map-with-python/</link><dc:creator>Sam Dotson</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Making-maps-with-Python"&gt;Making maps with Python&lt;a class="anchor-link" href="https://example.com/blog/making-a-map-with-python/#Making-maps-with-Python"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="Making-maps-with-Python"&gt;Making maps with Python&lt;a class="anchor-link" href="https://samdotson1992.github.io/SuperGIS/blog/making-a-map-with-python/#Making-maps-with-Python"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -826,4 +826,4 @@
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://example.com/blog/making-a-map-with-python/</guid><pubDate>Sat, 09 Dec 2017 15:01:28 GMT</pubDate></item></channel></rss>
+</description><guid>https://samdotson1992.github.io/SuperGIS/blog/making-a-map-with-python/</guid><pubDate>Sat, 09 Dec 2017 15:01:28 GMT</pubDate></item></channel></rss>
