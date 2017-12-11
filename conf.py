@@ -313,15 +313,14 @@ COMPILERS = {
 # SHOW_UNTRANSLATED_POSTS = True
 
 # Nikola supports logo display.  If you have one, you can put the URL here.
-# Final output is <img src="LOGO_URL" id="logo" alt="BLOG_TITLE">.
+# Final outpuITLE">.
 # The URL may be relative to the site root.
-LOGO_URL = 'https://static.pexels.com/photos/127028/pexels-photo-127028.jpeg'  
+LOGO_URL = "logo.pdf" 
 
 # If you want to hide the title of your website (for example, if your logo
 # already contains the text), set t     his to False.
 # SHOW_BLOG_TITLE = True
-
-# Writes tag cloud data in form of tag_cloud_data.json.
+# Writes tag cloud data in form of tag_cloud_data.json.#
 # Warning: this option will change its default value to False in v8!
 WRITE_TAG_CLOUD = True
 
