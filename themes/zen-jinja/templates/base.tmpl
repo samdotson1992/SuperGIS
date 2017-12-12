@@ -12,6 +12,11 @@
 <body>
     <section class="social">
         <ul>
+
+          <li>
+              <h1> {{ blog_title|e }}</h1>
+            </li>
+
         {% if logo_url %}
             <li>
                 <a href="{{ abs_link(_link("root", None, lang)) }}">
