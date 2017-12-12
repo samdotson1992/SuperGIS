@@ -14,14 +14,13 @@
         <ul>
 
           <li>
-              <h1  id="title" style="color:white; font-size:2em" > {{ blog_title|e }}</h1>
+              <h1  id="title" style="color:white; font-size:3em; font-family:'Lucida Console', Monaco, monospace"> {{ blog_title|e }}</h1>
             </li>
 
         {% if logo_url %}
             <li>
                 <a href="{{ abs_link(_link("root", None, lang)) }}">
                     <img src="{{ logo_url }}" alt="{{ blog_title|e }}" id="logo">
-                     <h1  id="title" style="color:white; font-size:2em" > {{ blog_title|e }}</h1>
                 </a>
             </li>
         {% endif %}
