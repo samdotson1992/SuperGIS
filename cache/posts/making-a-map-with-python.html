@@ -12948,14 +12948,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;California unemployment time series by counties&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">CA_jobs2</span> <span class="o">=</span> <span class="n">CA_jobs</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s1">&#39;Unemployment_rate&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span><span class="mi">2017</span><span class="p">))),</span> <span class="n">CA_jobs2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="n">mplcursors</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">hover</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -12966,25 +12965,6 @@ div#notebook {
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-14-5d975682fb43&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> CA_jobs2 <span class="ansi-blue-fg">=</span> CA_jobs<span class="ansi-blue-fg">.</span>filter<span class="ansi-blue-fg">(</span>regex<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;Unemployment_rate&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> plt<span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span>pd<span class="ansi-blue-fg">.</span>Series<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>range<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2007</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">2017</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> CA_jobs2<span class="ansi-blue-fg">.</span>T<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>mplcursors<span class="ansi-blue-fg">.</span>cursor<span class="ansi-blue-fg">(</span>hover<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> plt<span class="ansi-blue-fg">.</span>show<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;mplcursors&#39; is not defined</pre>
-</div>
-</div>
 
 <div class="output_area">
 
