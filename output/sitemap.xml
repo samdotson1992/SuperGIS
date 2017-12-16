@@ -7,30 +7,34 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/</loc>
-  <lastmod>2017-12-13T22:47:00Z</lastmod>
+  <lastmod>2017-12-16T02:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/about/</loc>
-  <lastmod>2017-12-13T22:47:00Z</lastmod>
+  <lastmod>2017-12-16T01:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/archive.html</loc>
-  <lastmod>2017-12-15T22:52:00Z</lastmod>
+  <lastmod>2017-12-16T02:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/blog/making-a-map-with-python/</loc>
-  <lastmod>2017-12-13T22:47:00Z</lastmod>
+  <lastmod>2017-12-16T02:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://samdotson1992.github.io/SuperGIS/blog/the-ghost-map/</loc>
+  <lastmod>2017-12-16T02:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/categories/</loc>
-  <lastmod>2017-12-13T22:47:00Z</lastmod>
+  <lastmod>2017-12-16T01:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/galleries/</loc>
-  <lastmod>2017-12-13T22:47:00Z</lastmod>
+  <lastmod>2017-12-16T01:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/listings/</loc>
-  <lastmod>2017-12-13T22:47:00Z</lastmod>
+  <lastmod>2017-12-16T01:12:00Z</lastmod>
  </url>
 </urlset>
