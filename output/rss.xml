@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SuperGIS</title><link>https://samdotson1992.github.io/SuperGIS</link><description>GIS blog</description><atom:link href="https://samdotson1992.github.io/SuperGIS/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:samdotson1992"&gt;Sam Dotson&lt;/a&gt; </copyright><lastBuildDate>Sat, 16 Dec 2017 11:11:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Test Post</title><link>https://samdotson1992.github.io/SuperGIS/blog/test-post/</link><dc:creator>Sam Dotson</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SuperGIS</title><link>https://samdotson1992.github.io/SuperGIS</link><description>GIS blog</description><atom:link href="https://samdotson1992.github.io/SuperGIS/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:samdotson1992"&gt;Sam Dotson&lt;/a&gt; </copyright><lastBuildDate>Sat, 16 Dec 2017 12:45:53 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Where are all the GIS jobs?</title><link>https://samdotson1992.github.io/SuperGIS/blog/where-are-all-the-gis-jobs/</link><dc:creator>Sam Dotson</dc:creator><description>&lt;div&gt;&lt;p&gt;So you want to know where the GIS jobs are, well here's a map for you. I collected the data from &lt;a href="http://www.gjc.org"&gt;GIS jobs Clearinghouse&lt;/a&gt; and proformed a simple heatmap using QGIS.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Job map" src="https://samdotson1992.github.io/SuperGIS/galleries/job_map.jpg"&gt;&lt;/p&gt;&lt;/div&gt;</description><guid>https://samdotson1992.github.io/SuperGIS/blog/where-are-all-the-gis-jobs/</guid><pubDate>Sat, 16 Dec 2017 11:32:03 GMT</pubDate></item><item><title>The Ghost Map</title><link>https://samdotson1992.github.io/SuperGIS/blog/the-ghost-map/</link><dc:creator>Sam Dotson</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Write your post here.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://samdotson1992.github.io/SuperGIS/blog/test-post/</guid><pubDate>Sat, 16 Dec 2017 11:03:21 GMT</pubDate></item><item><title>The Ghost Map</title><link>https://samdotson1992.github.io/SuperGIS/blog/the-ghost-map/</link><dc:creator>Sam Dotson</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Some would argue Geospatial analysis didn't come into being until computers were available, I would argue otherwise. Note I'm not using the term GIS in this context, because it's too broad and ambiguous. John Snow is credited as the father of modern Epidemiology, would arguably he is also the grandfather of geospatial analysis. In 1854 John Snow was investigating a cholera outbreak in Soho, London. To do this he plotted death locations on a map and discoved a trend, everything was near the broad street pump. At the time the widely help belief was the diease was transmited via "foul air", John disagreed and thought it was due to contaminated water and his map helped him prove it. Today we still have John's original map and data; so why not replicate his study using more modern tools.&lt;/p&gt;
+&lt;p&gt;Some would argue Geospatial analysis didn't come into being until computers were available, I would argue otherwise. Note I'm not using the term GIS in this context, because it's too broad and ambiguous. John Snow is credited as the father of modern Epidemiology (not the Game of Thrones character), would arguably he is also the grandfather of geospatial analysis. In 1854 John Snow was investigating a cholera outbreak in Soho, London. To do this he plotted death locations on a map and discoved a trend, everything was near the broad street pump. At the time the widely help belief was the diease was transmited via "foul air", John disagreed and thought it was due to contaminated water and his map helped him prove it. Today we still have John's original map and data; so why not replicate his study using more modern tools.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
