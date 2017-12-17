@@ -11,5 +11,5 @@
 
 So you want to know where the GIS jobs are, well here's a map for you. I collected the data from [GIS jobs Clearinghouse](http://www.gjc.org) and proformed a simple heatmap using QGIS.
 
-![Job map](/galleries/job_map.jpg)
+![Job map](/assets/images/job_map.jpg)
 
