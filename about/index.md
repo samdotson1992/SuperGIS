@@ -14,7 +14,8 @@ This is my first blog and basically just a way for me to share fun stuff I'm wor
 
 
 ##About myself
-![Samuel Dotson](/assets/images/selfie "Samuel Dotson")
+
+<img src="/assets/images/selfie.jpg" width="50%">
 
 I have a professional science masters in Environmental Inforatics from Tennessee Technological University and currently deep into studying Python, QGIS, Machine Learning and data science. 
 
