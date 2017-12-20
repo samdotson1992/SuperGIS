@@ -10,7 +10,7 @@
 -->
 
 ## About SuperGIS 
-This is my first blog and basically just a way for me to share fun stuff I'm working on. I'd like to expose more GIS professionals to programming,open source solutions and innovative ideas. If you have any suggestions are see anything incorrect in a post please go ahead and contact me via [twitter](https://twitter.com/nostodmas) or [GitHub](https://github.com/samdotson1992). 
+This is my first blog and basically just a way for me to share fun stuff I'm working on. I'd like to expose more GIS professionals to programming,open source solutions and innovative ideas. If you have any suggestions or see anything incorrect in a post please go ahead and contact me via [twitter](https://twitter.com/nostodmas) or [GitHub](https://github.com/samdotson1992). 
 
 
 ##About myself
