@@ -15,11 +15,19 @@
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/archive.html</loc>
-  <lastmod>2017-12-17T23:04:00Z</lastmod>
+  <lastmod>2017-12-20T18:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://samdotson1992.github.io/SuperGIS/blog/geocoding-with-the-google-maps-api/</loc>
+  <lastmod>2017-12-18T12:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/blog/making-a-map-with-python/</loc>
   <lastmod>2017-12-16T02:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://samdotson1992.github.io/SuperGIS/blog/making-maps-with-r/</loc>
+  <lastmod>2017-12-20T17:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://samdotson1992.github.io/SuperGIS/blog/the-ghost-map/</loc>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Geocoding with the Google Maps API | SuperGIS</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://samdotson1992.github.io/SuperGIS/blog/geocoding-with-the-google-maps-api/">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Sam Dotson">
+<meta property="og:site_name" content="SuperGIS">
+<meta property="og:title" content="Geocoding with the Google Maps API">
+<meta property="og:url" content="https://samdotson1992.github.io/SuperGIS/blog/geocoding-with-the-google-maps-api/">
+<meta property="og:description" content="As always the first step is to import some packages, right now I'm going to use requests, json and folium.
+
+
+
+
+
+
+In [1]:
+
+    
+import requests
+import json
+import folium
+
+
+
+
+
+
+
+
+
+
+
+So now you're going ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-12-17T23:31:28Z">
+</head>
+<body>
+    <section class="social"><ul>
+<li>
+              <h1 id="title" style="color:white; font-size:2em; font-family:'Lucida Console', Monaco, monospace"> SuperGIS</h1>
+            </li>
+
+            <li>
+                <a href="https://samdotson1992.github.io/SuperGIS/">
+                    <img src="../../assets/images/Logo.png" style="width:80%" alt="SuperGIS" id="logo"></a>
+            </li>
+                    <li><a href="../../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="../../about" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="https://twitter.com/nostodmas" title="My Twitter"><i class="icon-twitter"></i></a></li>
+            <li><a href="https://github.com/samdotson1992" title="My Github"><i class="icon-github"></i></a></li>
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+    <div class="post">
+        <h1 class="p-name entry-title" itemprop="headline name">Geocoding with the Google Maps API</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2017-12-17T23:31:28+00:00">2017-12-17 23:31</time>
+            
+                      |  
+        <a href="index.ipynb" id="sourcelink">Source</a>
+
+            </div>
+            
+        </div>
+        <div class="body">
+            <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As always the first step is to import some packages, right now I'm going to use <a href="http://docs.python-requests.org/en/master/">requests</a>, <a href="https://docs.python.org/2/library/json.html">json</a> and <a href="https://folium.readthedocs.io/en/latest/">folium</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">folium</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So now you're going to have to get an API key if you don't aready have one by going to the <a href="https://developers.google.com/maps/documentation/geocoding/start">Google Geocoder API</a>. After that we need to contruct our URL to send the request.</p>
+<p>The first part of the URL will appear as such, go ahead try clicking on it and see what happens.</p>
+<p><a href="https://maps.googleapis.com/maps/api/geocode/json?address=time+square+new+york+city&amp;key">https://maps.googleapis.com/maps/api/geocode/json?address=time+square+new+york+city&amp;key</a></p>
+<p>When making a request you should have an API key, but be careful if you make too many requests you might hit a query limit.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">api_key</span><span class="o">=</span> <span class="c1"># Place key here</span>
+
+<span class="n">url</span><span class="o">=</span><span class="s2">"https://maps.googleapis.com/maps/api/geocode/json?address=time+square+new+york+city&amp;key="</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">+</span><span class="n">api_key</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we have the response object r we should check the status code. It looks like we have a 200, which is good. For more information on status code you can refer to <a href="http://www.restapitutorial.com/httpstatuscodes.html">status codes</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span>  
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[36]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>200</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we're going to use Requests built in JSON decoder.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rjson</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">rjson</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[37]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{'results': [{'address_components': [{'long_name': 'Times Square',
+     'short_name': 'Times Square',
+     'types': ['establishment', 'park', 'point_of_interest']},
+    {'long_name': 'Manhattan',
+     'short_name': 'Manhattan',
+     'types': ['political', 'sublocality', 'sublocality_level_1']},
+    {'long_name': 'New York',
+     'short_name': 'New York',
+     'types': ['locality', 'political']},
+    {'long_name': 'New York County',
+     'short_name': 'New York County',
+     'types': ['administrative_area_level_2', 'political']},
+    {'long_name': 'New York',
+     'short_name': 'NY',
+     'types': ['administrative_area_level_1', 'political']},
+    {'long_name': 'United States',
+     'short_name': 'US',
+     'types': ['country', 'political']},
+    {'long_name': '10036', 'short_name': '10036', 'types': ['postal_code']}],
+   'formatted_address': 'Times Square, Manhattan, NY 10036, USA',
+   'geometry': {'location': {'lat': 40.758895, 'lng': -73.985131},
+    'location_type': 'GEOMETRIC_CENTER',
+    'viewport': {'northeast': {'lat': 40.7602439802915,
+      'lng': -73.9837820197085},
+     'southwest': {'lat': 40.7575460197085, 'lng': -73.9864799802915}}},
+   'place_id': 'ChIJmQJIxlVYwokRLgeuocVOGVU',
+   'types': ['establishment', 'park', 'point_of_interest']}],
+ 'status': 'OK'}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now all we need to do is access the information we want from the JSON and do something with it. In this case I'm going to make a simple map with a marker for Time Square.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">rjson</span><span class="p">[</span><span class="s1">'results'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'geometry'</span><span class="p">][</span><span class="s1">'location'</span><span class="p">][</span><span class="s1">'lat'</span><span class="p">]</span>
+<span class="n">lng</span> <span class="o">=</span> <span class="n">rjson</span><span class="p">[</span><span class="s1">'results'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'geometry'</span><span class="p">][</span><span class="s1">'location'</span><span class="p">][</span><span class="s1">'lng'</span><span class="p">]</span>
+<span class="n">address</span> <span class="o">=</span> <span class="n">rjson</span><span class="p">[</span><span class="s1">'results'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'formatted_address'</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map_1</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">],</span>
+                   <span class="n">zoom_start</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                   <span class="n">tiles</span><span class="o">=</span><span class="s1">'Stamen Toner'</span><span class="p">)</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">],</span> <span class="n">popup</span><span class="o">=</span><span class="n">address</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">map_1</span><span class="p">)</span>
+
+<span class="n">map_1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[39]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw+CjxoZWFkPiAgICAKICAgIDxtZXRhIGh0dHAtZXF1aXY9ImNvbnRlbnQtdHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04IiAvPgogICAgPHNjcmlwdD5MX1BSRUZFUl9DQU5WQVMgPSBmYWxzZTsgTF9OT19UT1VDSCA9IGZhbHNlOyBMX0RJU0FCTEVfM0QgPSBmYWxzZTs8L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmpzIj48L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2FqYXguZ29vZ2xlYXBpcy5jb20vYWpheC9saWJzL2pxdWVyeS8xLjExLjEvanF1ZXJ5Lm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvanMvYm9vdHN0cmFwLm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvTGVhZmxldC5hd2Vzb21lLW1hcmtlcnMvMi4wLjIvbGVhZmxldC5hd2Vzb21lLW1hcmtlcnMuanMiPjwvc2NyaXB0PgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmNzcyIgLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvY3NzL2Jvb3RzdHJhcC5taW4uY3NzIiAvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjIuMC9jc3MvYm9vdHN0cmFwLXRoZW1lLm1pbi5jc3MiIC8+CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vbWF4Y2RuLmJvb3RzdHJhcGNkbi5jb20vZm9udC1hd2Vzb21lLzQuNi4zL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzcyIgLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvTGVhZmxldC5hd2Vzb21lLW1hcmtlcnMvMi4wLjIvbGVhZmxldC5hd2Vzb21lLW1hcmtlcnMuY3NzIiAvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL3Jhd2dpdC5jb20vcHl0aG9uLXZpc3VhbGl6YXRpb24vZm9saXVtL21hc3Rlci9mb2xpdW0vdGVtcGxhdGVzL2xlYWZsZXQuYXdlc29tZS5yb3RhdGUuY3NzIiAvPgogICAgPHN0eWxlPmh0bWwsIGJvZHkge3dpZHRoOiAxMDAlO2hlaWdodDogMTAwJTttYXJnaW46IDA7cGFkZGluZzogMDt9PC9zdHlsZT4KICAgIDxzdHlsZT4jbWFwIHtwb3NpdGlvbjphYnNvbHV0ZTt0b3A6MDtib3R0b206MDtyaWdodDowO2xlZnQ6MDt9PC9zdHlsZT4KICAgIAogICAgICAgICAgICA8c3R5bGU+ICNtYXBfYTNkZDk2MTVmYWVkNDY1Mjk0MTZhODc4OWRiYmUxZDYgewogICAgICAgICAgICAgICAgcG9zaXRpb24gOiByZWxhdGl2ZTsKICAgICAgICAgICAgICAgIHdpZHRoIDogMTAwLjAlOwogICAgICAgICAgICAgICAgaGVpZ2h0OiAxMDAuMCU7CiAgICAgICAgICAgICAgICBsZWZ0OiAwLjAlOwogICAgICAgICAgICAgICAgdG9wOiAwLjAlOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICA8L3N0eWxlPgogICAgICAgIAo8L2hlYWQ+Cjxib2R5PiAgICAKICAgIAogICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb2xpdW0tbWFwIiBpZD0ibWFwX2EzZGQ5NjE1ZmFlZDQ2NTI5NDE2YTg3ODlkYmJlMWQ2IiA+PC9kaXY+CiAgICAgICAgCjwvYm9keT4KPHNjcmlwdD4gICAgCiAgICAKCiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgdmFyIGJvdW5kcyA9IG51bGw7CiAgICAgICAgICAgIAoKICAgICAgICAgICAgdmFyIG1hcF9hM2RkOTYxNWZhZWQ0NjUyOTQxNmE4Nzg5ZGJiZTFkNiA9IEwubWFwKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ21hcF9hM2RkOTYxNWZhZWQ0NjUyOTQxNmE4Nzg5ZGJiZTFkNicsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Y2VudGVyOiBbNDAuNzU4ODk1LC03My45ODUxMzFdLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgem9vbTogMTQsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXhCb3VuZHM6IGJvdW5kcywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxheWVyczogW10sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3b3JsZENvcHlKdW1wOiBmYWxzZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNyczogTC5DUlMuRVBTRzM4NTcKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSk7CiAgICAgICAgICAgIAogICAgICAgIAogICAgCiAgICAgICAgICAgIHZhciB0aWxlX2xheWVyX2I2ZmViNGE3NmEyZDQ0ZjI5NGVjMjgzOGYzMWM0OWYyID0gTC50aWxlTGF5ZXIoCiAgICAgICAgICAgICAgICAnaHR0cHM6Ly9zdGFtZW4tdGlsZXMte3N9LmEuc3NsLmZhc3RseS5uZXQvdG9uZXIve3p9L3t4fS97eX0ucG5nJywKICAgICAgICAgICAgICAgIHsKICAiYXR0cmlidXRpb24iOiBudWxsLAogICJkZXRlY3RSZXRpbmEiOiBmYWxzZSwKICAibWF4Wm9vbSI6IDE4LAogICJtaW5ab29tIjogMSwKICAibm9XcmFwIjogZmFsc2UsCiAgInN1YmRvbWFpbnMiOiAiYWJjIgp9CiAgICAgICAgICAgICAgICApLmFkZFRvKG1hcF9hM2RkOTYxNWZhZWQ0NjUyOTQxNmE4Nzg5ZGJiZTFkNik7CiAgICAgICAgCiAgICAKCiAgICAgICAgICAgIHZhciBtYXJrZXJfMWRjZGEyOTU3OGQzNDU4OWFmOGZiNTQ5YmU4MzljMGEgPSBMLm1hcmtlcigKICAgICAgICAgICAgICAgIFs0MC43NTg4OTUsLTczLjk4NTEzMV0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgaWNvbjogbmV3IEwuSWNvbi5EZWZhdWx0KCkKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAuYWRkVG8obWFwX2EzZGQ5NjE1ZmFlZDQ2NTI5NDE2YTg3ODlkYmJlMWQ2KTsKICAgICAgICAgICAgCiAgICAKICAgICAgICAgICAgdmFyIHBvcHVwXzAwODIxZTM1NjY3ZDQ4OTFhYzUxOWFiMzlhOWFmZjRhID0gTC5wb3B1cCh7bWF4V2lkdGg6ICczMDAnfSk7CgogICAgICAgICAgICAKICAgICAgICAgICAgICAgIHZhciBodG1sXzVkMGE4OWY4M2Y0OTRjYWE5NjY3OWZkZTg2M2ZiMDZjID0gJCgnPGRpdiBpZD0iaHRtbF81ZDBhODlmODNmNDk0Y2FhOTY2NzlmZGU4NjNmYjA2YyIgc3R5bGU9IndpZHRoOiAxMDAuMCU7IGhlaWdodDogMTAwLjAlOyI+VGltZXMgU3F1YXJlLCBNYW5oYXR0YW4sIE5ZIDEwMDM2LCBVU0E8L2Rpdj4nKVswXTsKICAgICAgICAgICAgICAgIHBvcHVwXzAwODIxZTM1NjY3ZDQ4OTFhYzUxOWFiMzlhOWFmZjRhLnNldENvbnRlbnQoaHRtbF81ZDBhODlmODNmNDk0Y2FhOTY2NzlmZGU4NjNmYjA2Yyk7CiAgICAgICAgICAgIAoKICAgICAgICAgICAgbWFya2VyXzFkY2RhMjk1NzhkMzQ1ODlhZjhmYjU0OWJlODM5YzBhLmJpbmRQb3B1cChwb3B1cF8wMDgyMWUzNTY2N2Q0ODkxYWM1MTlhYjM5YTlhZmY0YSk7CgogICAgICAgICAgICAKICAgICAgICAKPC9zY3JpcHQ+" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Well that's all folks! Geocoding can be pretty easy, but when dealing with large batches of data and funky addresses, it can quickly become a headache. For more information on usage limits go to <a href="https://developers.google.com/maps/documentation/geocoding/usage-limits">Usage Limits</a>. Always make sure to validate the data or at least be aware that it may not aways be accurate.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+        </div>
+                <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../where-are-all-the-gis-jobs/" rel="prev" title="Where are all the GIS jobs?">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../making-maps-with-r/" rel="next" title="Making maps with R">Next post</a>
+            </li>
+        </ul>
+</div>
+                     <footer id="footer"><p>Contents © 2017         <a href="mailto:samdotson1992">Sam Dotson</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="../../assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+    </script><script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>
